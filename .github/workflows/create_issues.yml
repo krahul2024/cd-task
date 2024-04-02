@@ -18,7 +18,7 @@ on:
 
 jobs:
   cd_releases:
-    runs-on: [linux, rasah-wf]
+    runs-on: ubuntu-latest
     steps:
       - name: Create and Link issues with the parent Feature 
         run: bash ./.github/scripts/cd_releases/create_issues.sh ${{ github.event.inputs.releaseId }} ${{ github.event.inputs.assignee }} ${{ github.event.inputs.parentIssue }} ${{secrets.ITRACAUTH}}
