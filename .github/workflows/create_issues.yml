@@ -1,0 +1,24 @@
+name: Creating iTracs for cd releases
+
+on:
+  workflow_dispatch:
+    inputs:
+      releaseId:
+        description: "Release version or Id"
+        required : true 
+        type : string
+      assignee:
+        description: "Assignee alias : "
+        required : true 
+        type : string 
+      parentIssue: 
+        description: "Parent Feature issue(ex. WF-312 or BOC-423) for this user story"
+        required : true 
+        type : string
+
+jobs:
+  cd_releases:
+    runs-on: [linux, rasah-wf]
+    steps:
+      - name: Create and Link issues with the parent Feature 
+        run: bash ./.github/scripts/cd_releases/create_issues.sh ${{ github.event.inputs.releaseId }} ${{ github.event.inputs.assignee }} ${{ github.event.inputs.parentIssue }} ${{secrets.ITRACAUTH}}

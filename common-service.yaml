@@ -1,0 +1,12 @@
+services:
+  runner:
+    image: local/cd-release
+    restart: on-failure
+    build:
+      context: .
+      dockerfile: Dockerfile
+    volumes:
+      - /var/run/docker.sock:/var/run/docker.sock
+    privileged: true
+    stdin_open: true
+    tty: true

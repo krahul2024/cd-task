@@ -1,0 +1,86 @@
+{
+    "projectConfig": {
+        "projectKey": "BOC",
+        "assignee": "",
+        "issueType": {
+            "parent": "Task",
+            "subtask": "Story Task"
+        },
+        "components": [
+            {
+                "name": "WMIO B2B - UI v2"
+            }
+        ]
+    },
+    "parentTask": {
+        "summary": "[$releaseId] CD release version ",
+        "description": "CD release version [$releaseId]",
+        "releaseId": ""
+    },
+    "subtasks": [
+        {
+            "summary": "[$releaseId] Identify and finalize the release candidate",
+            "description": "Identify and finalize the Release candidate"
+        },
+        {
+            "summary": "[$releaseId] Notify dev, doc team about the release.",
+            "description": "Notify dev, doc team about the release "
+        },
+        {
+            "summary": "[$releaseId] Prepare the release candidate wiki page.",
+            "description": "Prepare the release candidate iwiki documentation at https://iwiki.eur.ad.sag/x/MR6YO "
+        },
+        {
+            "summary": "[$releaseId] Merge the identified release candidate changes to development.",
+            "description": "Merge the identified release candidate changes to development "
+        },
+        {
+            "summary": "[$releaseId] Create release candidate branch.",
+            "description": "Create release candidate branch "
+        },
+        {
+            "summary": "[$releaseId] - build release artifact.",
+            "description": "build release artifact "
+        },
+        {
+            "summary": "[$releaseId] Create release candidate iwiki page under https://iwiki.eur.ad.sag/x/MR6YO",
+            "description": "Create release candidate iwiki page under https://iwiki.eur.ad.sag/x/MR6YO "
+        },
+        {
+            "summary": "[$releaseId] Upload built artifact for PCI scan & update PCI scan report to with release wiki page.",
+            "description": "Upload built artifact for PCI scan & update PCI scan report to with release wiki page "
+        },
+        {
+            "summary": "[$releaseId] prepare & attach UTC report.",
+            "description": "prepare & attach UTC report "
+        },
+        {
+            "summary": "[$releaseId] Prepare & attach the Checkmarx report.",
+            "description": "Prepare & attach the Checkmarx report "
+        },
+        {
+            "summary": "[$releaseId] Prepare and & attach Aqua scan report.",
+            "description": "Prepare and & attach Aqua scan report "
+        },
+        {
+            "summary": "[$releaseId] Update tag & SHA details in release wiki page.",
+            "description": "Update tag & SHA details in release wiki page "
+        },
+        {
+            "summary": "[$releaseId] create security issues & label them, if applicable.",
+            "description": "create security issues & label them, if applicable : $releaseId]"
+        },
+        {
+            "summary": "[$releaseId] Create cloud release features and assign to the appropriate owners.",
+            "description": "Create cloud release features and assign to the appropriate owners "
+        },
+        {
+            "summary": "[$releaseId] Merge release candidate to the main branch, generate change log file and tag it.",
+            "description": "Merge release candidate to the main branch, generate change log file and tag it "
+        },
+        {
+            "summary": "[$releaseId] Make final release in github repository.",
+            "description": "Make final release in github repository "
+        }
+    ]
+}

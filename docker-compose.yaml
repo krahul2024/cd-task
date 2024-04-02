@@ -1,0 +1,14 @@
+version: "3.5"
+services:
+  b2b-platform-runners:
+    extends:
+      file: ./common-service.yaml
+      service: runner
+    env_file:
+      - .cd-release.runner.properties.env
+  b2b-connector-runners:
+    extends:
+      file: ./common-service.yaml
+      service: runner
+    env_file:
+      - .cd-release.runner.properties.env
