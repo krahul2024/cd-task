@@ -10,10 +10,10 @@ if [ -z $itracAuth ]; then
 fi
 
 
-projectKey=$(jq -r '.projectConfig.projectKey' meta.json)
-parentIssueType=$(jq -r '.projectConfig.issueType.parent' meta.json)
-subtaskIssueType=$(jq -r '.projectConfig.issueType.subtask' meta.json)
-components=$(jq -c '.projectConfig.components' meta.json)
+projectKey=$(jq -r '.projectConfig.projectKey' .github/scripts/cd_releases/meta.json)
+parentIssueType=$(jq -r '.projectConfig.issueType.parent' .github/scripts/cd_releases/meta.json)
+subtaskIssueType=$(jq -r '.projectConfig.issueType.subtask' .github/scripts/cd_releases/meta.json)
+components=$(jq -c '.projectConfig.components' .github/scripts/cd_releases/meta.json)
 createIssueUrl="https://itrac.eur.ad.sag/rest/api/latest/issue"
 linkUrl="https://itrac.eur.ad.sag/rest/api/latest/issueLink"
 issueTypeUrl="https://itrac.eur.ad.sag/rest/api/latest/issueLinkType"
@@ -32,8 +32,8 @@ curl -v \
                 "assignee" : {
                     "name" : "'"$assignee"'"
                 },
-                "summary" : '"$(jq --arg releaseId "$releaseId" '.parentTask.summary | gsub("\\$releaseId"; $releaseId)' meta.json)"',
-                "description" : '"$(jq --arg releaseId "$releaseId" '.parentTask.description | gsub("\\$releaseId"; $releaseId)' meta.json)"',
+                "summary" : '"$(jq --arg releaseId "$releaseId" '.parentTask.summary | gsub("\\$releaseId"; $releaseId)' .github/scripts/cd_releases/meta.json)"',
+                "description" : '"$(jq --arg releaseId "$releaseId" '.parentTask.description | gsub("\\$releaseId"; $releaseId)' .github/scripts/cd_releases/meta.json)"',
                 "issuetype" : {
                     "name" : "'"$parentIssueType"'"
                 },
@@ -53,7 +53,7 @@ printf "Creating Sub-Task issues for parent issue :  $parentKey\n"
 
 
 for ((i=0; i<1; i++)); do
-    description=$(jq -r '.subtasks['$i'].description' meta.json)
+    description=$(jq -r '.subtasks['$i'].description' .github/scripts/cd_releases/meta.json)
     curl -v \
     -H "Content-Type: application/json"  \
     -H "Authorization: Bearer $itracAuth" \
@@ -69,8 +69,8 @@ for ((i=0; i<1; i++)); do
                 "assignee" : {
                     "name" : "'"$assignee"'"
                 },
-                "summary" : '"$(jq --arg releaseId "$releaseId" '.subtasks['$i'].summary | gsub("\\$releaseId"; $releaseId)' meta.json)"',
-                "description" : '"$(jq --arg releaseId "$releaseId" '.subtasks['$i'].description | gsub("\\$releaseId"; $releaseId)' meta.json)"',
+                "summary" : '"$(jq --arg releaseId "$releaseId" '.subtasks['$i'].summary | gsub("\\$releaseId"; $releaseId)' .github/scripts/cd_releases/meta.json)"',
+                "description" : '"$(jq --arg releaseId "$releaseId" '.subtasks['$i'].description | gsub("\\$releaseId"; $releaseId)' .github/scripts/cd_releases/meta.json)"',
                 "issuetype" : {
                     "name" : "'"$subtaskIssueType"'"
                 },
